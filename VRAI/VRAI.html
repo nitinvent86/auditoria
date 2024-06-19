@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SEVRI Institucional prueba</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="sevri-auditor.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+  <div class="sidebar">
+    <a class="active" href="../index.html">Inicio</a>
+    <a href="#about">About</a>
+  </div>
+
+    <button class="btn" id="mode-switch" onclick="switchMode()">Cambiar Modo</button>
+
+    <!-- Vista 1 -->
+    <div class="vista" id="vista1">
+
+    
+      <div class="content">
+        <h1>Bienvenido, <span id="user"></span></h1>
+        <h1>Datos de la Auditoría a evaluar</h1>
+
+        <h2>Agregar el nombre, objetivo general, objetivos especificos y los expertos del estudio</h2>
+
+        <!-- Formulario para agregar cliente -->      
+        <form id="add-client-form">
+
+          <div  class="objetivos-panel">
+            <div class="row">
+              <div class="col-25">
+                <label for="fname">Nombre del Estudio</label>
+              </div>
+              <div class="col-75">
+                <textarea id="estudio" name="subject" placeholder="Estudio..." style="height:40px" required></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="lname">Objetivo general del estudio</label>
+              </div>
+              <div class="col-75">
+                <textarea id="general" name="subject" placeholder="Objetivo general..." style="height:40px" required></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div  class="objetivos-panel">
+            <div class="row">
+              <div class="col-25">
+                <label for="country">Agregar Objetivos Específicos</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="client-name" placeholder="Nombre del cliente" style="height:25px">
+                <button type="submit" class="btn" onclick="agregarDato('client-name', 'client-list', 'client-name', event)">Agregar Objetivo</button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="country">Objetivo Específico</label>
+              </div>
+              <div class="col-75">              
+                <div id="client-list"> <!-- Lista de Objetivos cargados dinámicamente -->
+                  <!-- Los objetivos específicos se agregarán aquí dinámicamente -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div  class="objetivos-panel">
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Agregar Expertos</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="experto" placeholder="Nombre del experto">
+                  <button type="submit" class="btn" onclick="agregarDato('experto', 'expert-list', 'experto', event)">Agregar Experto</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Expertos</label>
+                </div>
+                <div class="col-75">        
+                  <div id="expert-list"> <!-- Lista de expertos cargados dinámicamente -->
+                    <!-- Los expertos se agregarán aquí dinámicamente -->
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </form>
+
+      </div> <!-- fin del <div> con el id "formcontent" --> 
+    </div>
+    
+    <!-- Vista 2 -->
+    <div class="vista" id="vista2">
+      <div class="content">
+        <h1>Datos de la Auditoría a evaluar</h1>
+
+        <!-- Formulario para definir que criterios se van a utilizar y las preguntas que se van a formular -->
+        <h2>Agregar los riesgos a evaluar en el estudio</h2>
+        <div id="btnContainer">
+          <button class="btn-lista-columnas " onclick="listView(event)"><i class="fa fa-bars"></i> Listas</button> 
+          <button class="btn-lista-columnas  active" onclick="gridView(event)"><i class="fa fa-th-large"></i> Columnas</button>
+        </div>
+        <form id="add-criterios-form">
+        <div class="fila">
+        <div class="column">
+                    <div  class="objetivos-panel">
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Agregar criterio de Legalidad</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="preguntaLegalidad" placeholder="Agregar pregunta..." style="height:25px">
+                  <button type="submit" class="btn-criterios" onclick="agregarDato('preguntaLegalidad', 'legalidad-list', 'preguntaLegalidad',event)">Agregar Pregunta</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Preguntas</label>
+                </div>
+                <div class="col-75">
+                  <!-- Lista de preguntas -->
+                  <div id="legalidad-list">
+                    <!-- Las preguntas se agregarán aquí dinámicamente -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+            
+             <div class="column">
+                    <div  class="objetivos-panel">
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Agregar criterio de Sistemas y Calidad de la Información</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="preguntaSistemas" placeholder="Agregar pregunta..." style="height:25px">
+                  <button type="submit" class="btn-criterios" onclick="agregarDato('preguntaSistemas', 'sistemas-list', 'preguntaSistemas',event)">Agregar Pregunta</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Preguntas</label>
+                </div>
+                <div class="col-75">
+                  <!-- Lista de preguntas -->
+                  <div id="sistemas-list">
+                    <!-- Las preguntas se agregarán aquí dinámicamente -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+         
+         
+         
+        <div class="fila">
+        <div class="column">
+                    <div  class="objetivos-panel">
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Agregar criterio de Eficacia y Eficiencia</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="preguntaEficacia" placeholder="Agregar pregunta..." style="height:25px">
+                  <button type="submit" class="btn-criterios" onclick="agregarDato('preguntaEficacia', 'eficacia-list', 'preguntaEficacia',event)">Agregar Pregunta</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Preguntas</label>
+                </div>
+                <div class="col-75">
+                  <!-- Lista de preguntas -->
+                  <div id="eficacia-list">
+                    <!-- Las preguntas se agregarán aquí dinámicamente -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+            
+             <div class="column">
+                    <div  class="objetivos-panel">
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Agregar criterio de Patrimonio</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="preguntaPatrimonio" placeholder="Agregar pregunta..." style="height:25px">
+                  <button type="submit" class="btn-criterios" onclick="agregarDato('preguntaPatrimonio', 'patrimonio-list', 'preguntaPatrimonio',event)">Agregar Pregunta</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Preguntas</label>
+                </div>
+                <div class="col-75">
+                  <!-- Lista de preguntas -->
+                  <div id="patrimonio-list">
+                    <!-- Las preguntas se agregarán aquí dinámicamente -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>         
+         
+         
+         
+                 <div class="fila">
+        <div class="column">
+                    <div  class="objetivos-panel">
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Agregar criterio Estratégico</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="preguntaEstrategico" placeholder="Agregar pregunta..." style="height:25px">
+                  <button type="submit" class="btn-criterios" onclick="agregarDato('preguntaEstrategico', 'estrategico-list', 'preguntaEstrategico',event)">Agregar Pregunta</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Preguntas</label>
+                </div>
+                <div class="col-75">
+                  <!-- Lista de preguntas -->
+                  <div id="estrategico-list">
+                    <!-- Las preguntas se agregarán aquí dinámicamente -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+            
+             <div class="column">
+                    <div  class="objetivos-panel">
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Agregar criterio Social</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="preguntaSocial" placeholder="Agregar pregunta..." style="height:25px">
+                  <button type="submit" class="btn-criterios" onclick="agregarDato('preguntaSocial', 'social-list', 'preguntaSocial',event)">Agregar Pregunta</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="country">Preguntas</label>
+                </div>
+                <div class="col-75">
+                  <!-- Lista de preguntas -->
+                  <div id="social-list">
+                    <!-- Las preguntas se agregarán aquí dinámicamente -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>  
+            
+            
+            
+            
+        </form>
+        <button id="previewData" class="btn-vistaprevia" onclick="vistaPrevia(event, 'estudio', 'general', 'listaDatosEstudio'); vistaPreviaPreguntas(event, 'valoracionriesgo');">Vista Previa</button>
+      </div>
+    </div>
+    
+    <!-- Vista 3 -->
+    <div class="vista" id="vista3">
+      <div class="content">
+        <h1>Datos de la Auditoría a evaluar</h1>
+        <!-- Formulario para agregar cliente -->
+        <h2>Vista previa de la valoración de riesgo</h2>
+
+        <div id="listaDatosEstudio" class="listaDatosEstudio">
+
+        </div>
+        <div id="valoracionriesgo" class="listavaloracionriesgo">
+   
+        </div>
+        <a href="../Validacion de riesgo calculos/index.html">Auditado</a>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="navigation">
+        <button id="prev" class="navigation-btn">Previous</button>
+        <button id="next" class="navigation-btn">Next</button>
+    </div>
+
+  <script src="sevri-auditor.js"></script>
+  <script src="prueba.js"></script>
+</body>
+</html>

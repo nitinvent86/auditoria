@@ -1,0 +1,286 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: #333;
+}
+
+header .logo-container {
+    display: inline-block;
+    justify-content: left;
+    background-color: #333; /* Cambia esto al color que desees */
+    padding: 5px; /* Opcional: Añadir un poco de padding para el logo */
+
+    position: relative;
+}
+
+header .logo {
+    height: 50px;
+}
+
+header .menu-container {
+    background-color: #333; /* Cambia esto al color que desees */
+    margin-left: 200px;
+}
+
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.content {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+section#equipo .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+}
+
+section#equipo .equipo-info {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+section#equipo .equipo-foto {
+    flex: 1;
+    max-width: 500px;
+    height: auto;
+}
+
+section#servicios .services-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+section#servicios .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card ul li {
+    text-align: left;
+}
+
+section#valores .valores-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+section#valores .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section#valores .valores-container p {
+    text-align: justify;
+}
+
+section#servicios .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,100,200,0.2);
+}
+
+section#mision-vision .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+section#mision-vision .mision,
+section#mision-vision .vision {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    box-shadow: 0 8px 16px 0 rgba(0,100,200,0.2);
+    padding: 10px;
+}
+
+section#mision-vision .mision h3, .vision h3{
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 2%;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    header .menu-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        justify-content: center;
+    }
+
+    section#equipo .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    section#equipo .equipo-info {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    section#equipo .equipo-foto {
+        max-width: 100%;
+    }
+
+    section#servicios .card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    section#mision-vision .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section#mision-vision .mision,
+    section#mision-vision .vision {
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .logo-container {
+        justify-content: center;
+    }
+
+    header .logo {
+        margin-bottom: 10px;
+    }
+
+    header nav ul li {
+        margin-left: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    .hexagon {
+        width: 80px;
+        height: 92px;
+    }
+
+    .hexagon button {
+        font-size: 12px;
+    }    
+}
+
+
+.divider {
+    height: 5px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    margin: 20px 0;
+}
+
+section#sistemas {
+    position: relative;
+    padding: 60px 20px;
+    color: #fff;
+    background: url('https://cdn.guiase.net/wp-content/uploads/sites/1363/2020/11/Imagem-AI-atributo-2.png') no-repeat center center/cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.hexagon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.hexagon {
+    width: 100px;
+    height: 115px;
+    background-color: #333;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexagon button {
+    background-color: transparent;
+    width: 100px;
+    height: 115px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+

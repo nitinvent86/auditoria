@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legalización de Libros</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Añadir este script en la sección head de tu HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Menú responsive -->
+    <nav class="menu">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#crear-reporte">Crear Reporte</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Legalización de Libros Contables</h1>
+        </header>
+        
+        <!-- Sección de información de totales -->
+        <section id="totales">
+            <div class="total">
+                <h3>Total de libros ingresados</h3>
+                <div id="totalIngresados" class="total-value">0</div>
+            </div>
+            <div class="total">
+                <h3>Total de libros abiertos</h3>
+                <div id="totalAbiertos" class="total-value">0</div>
+            </div>
+            <div class="total">
+                <h3>Total de libros cerrados</h3>
+                <div id="totalCerrados" class="total-value">0</div>
+            </div>
+        </section>
+
+        <section id="form-section">
+            <h2>Ingreso de Datos</h2>
+            <form id="book-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-id">ID del Libro:</label>
+                        <input type="text" id="book-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="region">Región de la Oficina:</label>
+                        <input type="text" id="region" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="office-name">Nombre de la Oficina:</label>
+                        <input type="text" id="office-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="legalization">Oficio de Legalización:</label>
+                        <input type="text" id="legalization" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-type">Tipo de Libro:</label>
+                        <input type="text" id="book-type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">Tomo del Libro:</label>
+                        <input type="text" id="volume" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="entry">Asiento del Libro:</label>
+                        <input type="text" id="entry" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="request">Oficio de Solicitud:</label>
+                        <input type="text" id="request" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="request-date">Fecha de Solicitud:</label>
+                        <input type="date" id="request-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Estado del Libro:</label>
+                        <select id="status" required>
+                            <option value="abierto">Abierto</option>
+                            <option value="cerrado">Cerrado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-date">Fecha de Entrega:</label>
+                        <input type="date" id="delivery-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notas Relevantes:</label>
+                        <textarea id="notes" required></textarea>
+                    </div>
+                </div>
+                <button type="submit">Agregar Libro</button>
+            </form>
+        </section>
+
+
+        <!-- Botón y selector de formato para crear reporte -->
+        <section id="crear-reporte">
+        <!-- Botón para descargar el reporte -->
+        <button id="btnDescargarReporte">Crear Reporte</button>
+        <select id="formatoDescarga">
+            <option value="csv">CSV</option>
+            <option value="xlsx">Excel (XLSX)</option>
+            <option value="pdf">PDF</option>
+        </select>
+        </section>
+
+
+
+
+        <section id="table-section">
+            <h2>Libros Ingresados</h2>
+            <table id="books-table">
+                <thead>
+                    <tr>
+                        <th>ID del Libro</th>
+                        <th>Región</th>
+                        <th>Nombre de la Oficina</th>
+                        <th>Oficio de Legalización</th>
+                        <th>Tipo de Libro</th>
+                        <th>Tomo</th>
+                        <th>Asiento</th>
+                        <th>Oficio de Solicitud</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Estado</th>
+                        <th>Fecha de Entrega</th>
+                        <th>Notas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán las filas de la tabla dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container-footer">
+            <p>&copy; 2024 Legalización de Libros Contables</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

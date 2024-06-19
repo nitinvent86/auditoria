@@ -1,0 +1,481 @@
+.vista {
+    display: none;
+}
+
+    .vista.active {
+        display: block;
+    }
+
+/* Estilos CSS */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#client-list {
+    margin-bottom: 20px;
+}
+
+
+#expert-list {
+    margin-bottom: 20px;
+}
+
+.client {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.expert {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+
+.btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-lista-columnas {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(32, 178, 170);
+    color: #fff;
+}
+
+.btn-vistaprevia{
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    margin-bottom: 5px;
+    width: 10%;
+}
+
+.navigation {
+    margin-bottom: 10px;
+    margin-left: 216px;
+    width: 10%;
+}
+
+.navigation-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-delete {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(165, 42, 42);
+    color: #fff;
+    position: relative;
+}
+
+.btn-criterios {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(112, 128, 144);
+    color: #fff;  
+    margin-top: 5px;  
+}
+
+button:disabled {
+    background-color: #cccccc;
+}
+
+
+.client-form {
+    margin-bottom: 100px;
+}
+
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+    .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+        .sidebar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+}
+
+
+
+input[type=text], select, textarea {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.objetivos-panel {
+    border-radius: 10px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    padding: 20px;
+    width: 80%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    overflow-y: scroll;
+    height: 200px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+    .objetivos-panel::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+        .sidebar a {
+            float: left;
+        }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+
+
+
+
+
+
+.table-encabezado-riesgo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+    .table-encabezado-riesgo td, .table-encabezado-riesgo th {
+        border: 1px solid white;
+        padding: 8px;
+        border-radius: 10px;
+        width: 100%
+    }
+
+    .table-encabezado-riesgo tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table-encabezado-riesgo tr:hover {
+        background-color: #ddd;
+    }
+
+    .table-encabezado-riesgo th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: rgba(0, 0, 80, 1);
+        color: white;
+    }
+
+.trprueba {
+    background-color: #f2f2f2;
+}
+
+.trpruebase {
+    background-color: red;
+}
+
+
+.listaDatosEstudio {
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.listavaloracionriesgo {
+    width: 100%;
+}
+
+
+
+
+
+/*************************************************************************************************************************************************************/
+.table-encabezado-riesgo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+    .table-encabezado-riesgo td, #table-encabezado-riesgo th {
+        border: 1px solid white;
+        padding: 8px;
+        border-radius: 10px;
+        width: 100%
+    }
+
+    .table-encabezado-riesgo tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table-encabezado-riesgo tr:hover {
+        background-color: #ddd;
+    }
+
+    .table-encabezado-riesgo th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: rgba(0, 0, 80, 1);
+        color: white;
+    }
+/*************************************************************************************************************************************************************/
+
+.table-analisis-riesgo {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+    .table-analisis-riesgo td, .table-analisis-riesgo th {
+        border: 1px solid white;
+        padding: 8px;
+        border-radius: 10px;
+        width: 100%
+    }
+
+    .table-analisis-riesgo tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table-analisis-riesgo tr:hover {
+        background-color: #ddd;
+    }
+
+    .table-analisis-riesgo th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: rgba(0, 0, 80, 1);
+        color: white;
+    }
+
+.th-riesgos {
+    background-color: rgba(0, 0, 80, 0.5);
+    color: white;
+}
+
+.td-criterios {
+    background-color: rgba(0, 0, 80, 1);
+    color: white;
+}
+
+.td-probabilidad-consecuencia {
+    background-color: rgba(0, 80, 0, 0.5);
+    color: white;
+}
+
+.td-ra {
+    background-color: rgba(255, 196, 0, 0.7);
+    color: white;
+}
+
+.td-severidad {
+    background-color: rgba(80, 0, 0, 0.7);
+    color: white;
+}
+/*************************************************************************************************************************************************************/
+.matriz-criterios {
+    float: left;
+    width: 95%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    margin: -2% 0% 2% 2%;
+    border-radius: 10px;
+}
+/*************************************************************************************************************************************************************/
+.informe-encabezado {
+    float: left;
+    border-radius: 10px;
+}
+
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 48%;
+    padding: 10px;
+}
+
+/* Clear floats after the columns */
+.fila:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.light-mode {
+    background-color: white;
+    color: black;
+}
+
+    .light-mode button {
+        background-color: blue;
+        color: white;
+    }
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+    .dark-mode button {
+        background-color: #800000; /* rojo mate */
+        color: white;
+    }
+
+    .dark-mode .sidebar {
+        background-color: #2c2c2c;
+
+    }
+
+    /*código para cambiar el color de a en el sidebar en modo oscuro*/
+    .dark-mode a{
+    color: white;
+    }
+
+    .dark-mode .objetivos-panel {
+        box-shadow: rgba(255, 255, 255, 0.25) 0px 4px 8px -2px, rgba(255, 255, 255, 0.25) 0px 0px 0px 1px;
+        
+    }
+    .dark-mode .expert {
+        background-color: black;
+        color: white;
+    }
+
+.dark-mode input[type=text], .dark-mode textarea {
+  background-color: black;
+  color: white;
+}
+
+.dark-mode textarea:focus, .dark-mode input:focus, .dark-mode input[type]:focus {
+    border-color: rgb(255, 144, 0);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    outline: 0 none;
+}
+
+.dark-mode button:disabled {
+    background-color: #cccccc;
+}
+
+    #mode-switch {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        margin-left: 75%;
+        position: absolute;
+    }
+  </style>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Evaluación de Riesgos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Evaluación de Riesgos</h1>
+        <form id="riskForm">
+            <div class="form-group">
+                <label for="probabilidad">Probabilidad (1-5):</label>
+                <input type="number" id="probabilidad" name="probabilidad" min="1" max="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="consecuencia">Consecuencia (1-5):</label>
+                <input type="number" id="consecuencia" name="consecuencia" min="1" max="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ra">R.A:</label>
+                <input type="number" id="ra" name="ra" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="severidad">Severidad:</label>
+                <div id="severidad" class="severidad"></div>
+            </div>            
+
+            <div class="form-group">
+                <label for="descripcionControl">Descripción del Control:</label>
+                <textarea id="descripcionControl" name="descripcionControl" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="valorControl">Valor del Control (0-4):</label>
+                <select id="valorControl" name="valorControl" onchange="cambiarInterpretacion()" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="interpretacion">Interpretación:</label>
+                <input type="text" id="interpretacion" name="interpretacion" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="mitiP">Miti P:</label>
+                <input type="text" id="mitiP" name="mitiP" maxlength="1" oninput="validarX(this)" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mitiC">Miti C:</label>
+                <input type="text" id="mitiC" name="mitiC" maxlength="1" oninput="validarX(this)" required>
+            </div>
+
+            <div class="form-group">
+                <label for="probabilidadcontrol">Probabilidad (1-5):</label>
+                <input type="number" id="probabilidadcontrol" name="probabilidadcontrol" min="1" max="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="consecuenciacontrol">Consecuencia (1-5):</label>
+                <input type="number" id="consecuenciacontrol" name="consecuenciacontrol" min="1" max="5" required>
+            </div>            
+
+            <div class="form-group">
+                <label for="rc">R.C:</label>
+                <input type="number" id="rc" name="rc" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="severidadcontrol">Severidad con Control:</label>
+                <div id="severidadcontrol" class="severidad"></div>
+            </div>             
+
+            <button type="button" onclick="calcularRA(); calcularRC();">Calcular</button>
+        </form>
+        <canvas id="riskChart" width="400" height="200"></canvas>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
